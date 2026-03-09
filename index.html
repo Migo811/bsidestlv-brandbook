@@ -27,11 +27,8 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     ::selection { background: rgba(124,58,237,0.35); color: var(--purple-xl); }
-
     html { scroll-behavior: smooth; font-size: 16px; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -42,1124 +39,399 @@
 
     /* ─── PROGRESS BAR ─── */
     #progress {
-      position: fixed;
-      top: 0; left: 0;
+      position: fixed; top: 0; left: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--purple), var(--green));
-      width: 0%;
-      z-index: 200;
+      width: 0%; z-index: 200;
       transition: width 0.1s linear;
     }
 
     /* ─── NAV ─── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 60px;
       background: rgba(5,5,9,0.8);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-l);
     }
-
     .nav-logo {
       font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      color: var(--purple-l);
-      text-transform: uppercase;
+      font-size: 0.72rem; letter-spacing: 0.18em;
+      color: var(--purple-l); text-transform: uppercase;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
       font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-      position: relative;
+      font-size: 0.65rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      text-decoration: none; transition: color 0.2s; position: relative;
     }
-
     .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0; right: 0;
-      height: 1px;
-      background: var(--purple-l);
-      transform: scaleX(0);
-      transition: transform 0.2s;
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1px; background: var(--purple-l);
+      transform: scaleX(0); transition: transform 0.2s;
     }
-
     .nav-links a:hover { color: var(--purple-xl); }
     .nav-links a:hover::after { transform: scaleX(1); }
     .nav-links a.active { color: var(--purple-xl); }
     .nav-links a.active::after { transform: scaleX(1); }
-
     @media (max-width: 900px) { .nav-links { display: none; } }
-
-    /* ─── THEME TOGGLE ─── */
     .theme-toggle {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--muted-l);
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.75rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-      flex-shrink: 0;
+      background: none; border: 1px solid var(--border);
+      color: var(--muted-l); font-family: 'Space Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35rem 0.75rem; border-radius: 4px; cursor: pointer;
+      transition: color 0.2s, border-color 0.2s; flex-shrink: 0;
     }
     .theme-toggle:hover { color: var(--purple-xl); border-color: var(--purple-l); }
 
     /* ─── LIGHT MODE ─── */
     html.light {
-      --bg:       #f6f6fc;
-      --bg2:      #ededf8;
-      --bg3:      #e4e4f2;
-      --card:     #ffffff;
-      --purple:   #6d28d9;
-      --purple-l: #7c3aed;
-      --purple-xl:#5b21b6;
-      --green:    #4d7c0f;
-      --green-d:  #365314;
-      --pink:     #c026d3;
-      --text:     #0d0d1e;
-      --text-2:   #1e1e3f;
-      --muted:    #52525b;
-      --muted-l:  #3f3f5a;
-      --border:   rgba(109,40,217,0.18);
-      --border-l: rgba(109,40,217,0.1);
+      --bg: #f6f6fc; --bg2: #ededf8; --bg3: #e4e4f2; --card: #ffffff;
+      --purple: #6d28d9; --purple-l: #7c3aed; --purple-xl: #5b21b6;
+      --green: #4d7c0f; --green-d: #365314; --pink: #c026d3;
+      --text: #0d0d1e; --text-2: #1e1e3f;
+      --muted: #52525b; --muted-l: #3f3f5a;
+      --border: rgba(109,40,217,0.18); --border-l: rgba(109,40,217,0.1);
     }
     html.light nav { background: rgba(246,246,252,0.92); }
     html.light .hero-bg::before { background: radial-gradient(circle, rgba(109,40,217,0.14) 0%, transparent 65%); }
     html.light .hero-bg::after  { background: radial-gradient(circle, rgba(109,40,217,0.07) 0%, transparent 65%); }
     html.light .hero-grid-bg {
-      background-image:
-        linear-gradient(rgba(109,40,217,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(109,40,217,0.07) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(109,40,217,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.07) 1px, transparent 1px);
     }
     html.light .hero-title { color: var(--text); }
-    html.light .hero-sub   { color: var(--muted-l); }
+    html.light .hero-sub { color: var(--muted-l); }
     html.light .rules-section { background: var(--bg2); }
     html.light .theme-section { background: var(--bg3); }
-    html.light .pull-quote { background: var(--bg2); border-color: var(--border); }
     html.light .pull-quote-text { color: var(--purple); }
     html.light .example-col.wrong { background: rgba(239,68,68,0.06); }
     html.light .example-col.right { background: rgba(109,40,217,0.06); }
-    html.light .speaker-card, html.light .sponsor-card { background: var(--card); border-color: var(--border); }
+    html.light .speaker-card { background: var(--card); border-color: var(--border); }
     html.light .tagline-item { border-color: var(--border-l); }
     html.light .tagline-item:hover { background: var(--bg3); }
     html.light .tagline-text { color: var(--purple); }
     html.light .about-aside-quote { color: var(--purple); }
     html.light .theme-statement { color: var(--purple); border-color: var(--purple); }
-    html.light .voice-col.do   { border-color: rgba(109,40,217,0.25); }
-    html.light .voice-col.dont { border-color: rgba(239,68,68,0.25); }
-    html.light .voice-item { color: var(--text-2); }
     html.light .rule-desc { color: var(--muted); }
     html.light .about-text p { color: var(--text-2); }
     html.light .stat-label { color: var(--muted); }
+    html.light .voice-prose { color: var(--text-2); }
+    html.light .identity-prose { color: var(--text-2); }
+    html.light .theme-note { border-color: var(--border); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
+    @keyframes drift  { from { transform:translate(0,0) scale(1); } to { transform:translate(-60px,60px) scale(1.1); } }
+    @keyframes drift2 { from { transform:translate(0,0); } to { transform:translate(40px,-40px) scale(1.08); } }
+    @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .reveal-delay-1 { transition-delay:0.1s; }
+    .reveal-delay-2 { transition-delay:0.2s; }
 
     /* ─── HERO ─── */
     .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 2.5rem 7rem;
-      overflow: hidden;
+      position:relative; min-height:100vh;
+      display:flex; flex-direction:column; justify-content:flex-end;
+      padding:0 2.5rem 7rem; overflow:hidden;
     }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
+    .hero-bg { position:absolute; inset:0; z-index:0; }
     .hero-bg::before {
-      content: '';
-      position: absolute;
-      width: 900px; height: 900px;
-      top: -200px; right: -200px;
-      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 65%);
-      animation: drift 12s ease-in-out infinite alternate;
+      content:''; position:absolute;
+      width:900px; height:900px; top:-200px; right:-200px;
+      background:radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 65%);
+      animation:drift 12s ease-in-out infinite alternate;
     }
-
     .hero-bg::after {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
-      bottom: 0; left: -100px;
-      background: radial-gradient(circle, rgba(163,230,53,0.07) 0%, transparent 65%);
-      animation: drift2 15s ease-in-out infinite alternate;
+      content:''; position:absolute;
+      width:600px; height:600px; bottom:0; left:-100px;
+      background:radial-gradient(circle, rgba(163,230,53,0.07) 0%, transparent 65%);
+      animation:drift2 15s ease-in-out infinite alternate;
     }
-
-    @keyframes drift {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(-60px, 60px) scale(1.1); }
-    }
-
-    @keyframes drift2 {
-      from { transform: translate(0, 0); }
-      to   { transform: translate(40px, -40px) scale(1.08); }
-    }
-
     .hero-grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(124,58,237,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124,58,237,0.035) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%);
+      position:absolute; inset:0;
+      background-image: linear-gradient(rgba(124,58,237,0.035) 1px,transparent 1px), linear-gradient(90deg,rgba(124,58,237,0.035) 1px,transparent 1px);
+      background-size:72px 72px;
+      mask-image:radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%);
     }
-
-    .hero-content { position: relative; z-index: 1; max-width: 1100px; }
-
+    .hero-content { position:relative; z-index:1; max-width:1100px; }
     .hero-eyebrow {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s ease forwards;
+      font-family:'Space Mono',monospace; font-size:0.72rem;
+      letter-spacing:0.22em; text-transform:uppercase; color:var(--green);
+      margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s 0.2s ease forwards;
     }
-
     .hero-title {
-      font-size: clamp(4rem, 10vw, 9.5rem);
-      font-weight: 700;
-      line-height: 0.92;
-      letter-spacing: -0.04em;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.4s ease forwards;
+      font-size:clamp(4rem,10vw,9.5rem); font-weight:700;
+      line-height:0.92; letter-spacing:-0.04em; margin-bottom:2rem;
+      opacity:0; animation:fadeUp 0.8s 0.4s ease forwards;
     }
-
     .hero-title .line2 {
-      background: linear-gradient(135deg, var(--purple-l) 0%, var(--pink) 50%, var(--green) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      background:linear-gradient(135deg,var(--purple-l) 0%,var(--pink) 50%,var(--green) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     }
-
     .hero-sub {
-      font-family: 'Space Mono', monospace;
-      font-size: clamp(0.85rem, 1.5vw, 1.05rem);
-      color: var(--muted-l);
-      font-style: italic;
-      line-height: 1.7;
-      max-width: 460px;
-      margin-bottom: 3.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.6s ease forwards;
+      font-family:'Space Mono',monospace;
+      font-size:clamp(0.85rem,1.5vw,1.05rem);
+      color:var(--muted-l); font-style:italic; line-height:1.85;
+      max-width:540px; margin-bottom:3.5rem;
+      opacity:0; animation:fadeUp 0.8s 0.6s ease forwards;
     }
-
     .hero-meta {
-      display: flex;
-      gap: 0;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.8s ease forwards;
+      display:flex; gap:0; flex-wrap:wrap;
+      opacity:0; animation:fadeUp 0.8s 0.8s ease forwards;
     }
-
-    .hero-meta-item {
-      padding: 1.25rem 2rem;
-      border: 1px solid var(--border);
-      border-right: none;
-    }
-
-    .hero-meta-item:last-child { border-right: 1px solid var(--border); }
-
+    .hero-meta-item { padding:1.25rem 2rem; border:1px solid var(--border); border-right:none; }
+    .hero-meta-item:last-child { border-right:1px solid var(--border); }
     .hero-meta-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
+      font-family:'Space Mono',monospace; font-size:0.6rem;
+      letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:0.3rem;
     }
-
-    .hero-meta-value {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
+    .hero-meta-value { font-size:1rem; font-weight:600; }
     .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      right: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      opacity: 0;
-      animation: fadeUp 1s 1.2s ease forwards;
+      position:absolute; bottom:3rem; right:2.5rem;
+      display:flex; flex-direction:column; align-items:center; gap:0.75rem;
+      font-family:'Space Mono',monospace; font-size:0.6rem;
+      letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);
     }
-
     .scroll-line {
-      width: 40px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--muted));
+      width:1px; height:48px; background:linear-gradient(to bottom,var(--purple),transparent);
+      opacity:0; animation:fadeUp 1s 1.2s ease forwards;
     }
 
-    /* ─── REVEAL ANIMATIONS ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    @media print {
-      .reveal { opacity: 1 !important; transform: none !important; }
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* ─── SECTION WRAPPER ─── */
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 8rem 2.5rem;
-    }
-
-    .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--purple);
-    }
-
-    h2 {
-      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-    }
-
-    .lead {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: var(--text-2);
-      max-width: 680px;
-    }
-
-    /* ─── DIVIDER ─── */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, var(--border) 20%, var(--border) 80%, transparent 100%);
-      margin: 0 2.5rem;
-    }
-
-    /* ─── MANIFESTO STRIP ─── */
+    /* ─── MANIFESTO ─── */
     .manifesto-strip {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 6rem 2.5rem;
-      text-align: center;
+      padding:5rem 2.5rem;
+      border-top:1px solid var(--border-l); border-bottom:1px solid var(--border-l);
     }
-
     .manifesto-strip p {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      font-weight: 600;
-      line-height: 1.4;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      max-width: 900px;
-      margin: 0 auto 1rem;
+      font-size:clamp(1.5rem,4vw,3rem); font-weight:600;
+      line-height:1.25; letter-spacing:-0.02em; max-width:900px;
+    }
+    .manifesto-strip em { font-style:normal; color:var(--purple-l); }
+
+    /* ─── SECTIONS ─── */
+    .section { padding:7rem 2.5rem; }
+    .section-label {
+      font-family:'Space Mono',monospace; font-size:0.7rem;
+      letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:1.5rem;
+    }
+    h2 {
+      font-size:clamp(2.5rem,6vw,5rem); font-weight:700;
+      line-height:1.0; letter-spacing:-0.03em; margin-bottom:2rem;
+    }
+    .lead {
+      font-size:clamp(1rem,2vw,1.25rem); line-height:1.8;
+      color:var(--text-2); max-width:720px; margin-bottom:3rem;
     }
 
-    .manifesto-strip p:last-child { margin-bottom: 0; }
-
-    .manifesto-strip em {
-      font-style: normal;
-      color: var(--purple-l);
+    /* ─── ABOUT ─── */
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; margin-top:3rem; }
+    @media (max-width:800px) { .about-grid { grid-template-columns:1fr; gap:3rem; } }
+    .about-text p { font-size:1.05rem; line-height:1.85; color:var(--text-2); margin-bottom:1.25rem; }
+    .about-aside-quote {
+      font-family:'Space Mono',monospace; font-style:italic;
+      font-size:1.4rem; color:var(--purple-l); line-height:1.4; margin-bottom:1.5rem;
+    }
+    .about-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:2rem; }
+    .tag {
+      font-family:'Space Mono',monospace; font-size:0.65rem;
+      letter-spacing:0.1em; text-transform:uppercase;
+      border:1px solid var(--border); color:var(--muted-l); padding:0.3rem 0.75rem; border-radius:2px;
     }
 
     /* ─── STATS ─── */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      margin-top: 4rem;
-      border: 1px solid var(--border);
-    }
+    .stats-row { display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--border-l); }
+    @media (max-width:700px) { .stats-row { grid-template-columns:repeat(2,1fr); } }
+    .stat { padding:2rem 1.5rem; border-right:1px solid var(--border-l); }
+    .stat:last-child { border-right:none; }
+    .stat-num { font-size:clamp(2rem,4vw,3.5rem); font-weight:700; letter-spacing:-0.03em; color:var(--purple-l); display:block; margin-bottom:0.4rem; }
+    .stat-label { font-size:0.8rem; color:var(--muted-l); }
 
-    @media (max-width: 768px) {
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    .stat {
-      padding: 2.5rem 1.5rem;
-      border-right: 1px solid var(--border);
-      text-align: center;
-      transition: background 0.3s;
-    }
-
-    .stat:last-child { border-right: none; }
-    .stat:hover { background: var(--bg2); }
-
-    .stat-num {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      background: linear-gradient(135deg, var(--purple-l), var(--pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: block;
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ─── ABOUT TEXT ─── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-      margin-top: 3.5rem;
-    }
-
-    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-
-    .about-text p {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: var(--text-2);
-      margin-bottom: 1.25rem;
-    }
-
-    .about-text p:last-child { margin-bottom: 0; }
-
-    .about-aside {
-      border-left: 2px solid var(--purple);
-      padding-left: 2rem;
-    }
-
-    .about-aside-quote {
-      font-size: 1.4rem;
-      font-weight: 600;
-      line-height: 1.4;
-      color: var(--purple-xl);
-      font-style: italic;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.85rem;
-      border: 1px solid var(--border);
-      color: var(--muted-l);
-      border-radius: 2px;
-    }
-
-    /* ─── NON-NEGOTIABLES ─── */
-    .rules-section {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .rules-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 8rem 2.5rem;
-    }
-
-    .rule-list {
-      margin-top: 3rem;
-    }
-
+    /* ─── RULES ─── */
+    .rules-section { background:var(--bg2); }
+    .rules-inner { padding:7rem 2.5rem; }
+    .rule-list { margin-top:3rem; }
     .rule-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 2rem;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border-l);
+      display:grid;
+      grid-template-columns: 56px 1fr 1.6fr;
+      grid-template-rows: auto;
+      gap: 0 3.5rem;
+      padding:2.25rem 0; border-bottom:1px solid var(--border-l);
       align-items: start;
       transition: background 0.2s;
-      cursor: default;
     }
-
-    .rule-item:first-child { border-top: 1px solid var(--border-l); }
-
-    .rule-item:hover { background: rgba(124,58,237,0.03); margin: 0 -2rem; padding-left: 2rem; padding-right: 2rem; }
-
+    .rule-item:first-child { border-top:1px solid var(--border-l); }
+    .rule-item:hover { background: rgba(124,58,237,0.03); margin:0 -1rem; padding-left:1rem; padding-right:1rem; }
     .rule-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      color: var(--purple);
-      padding-top: 0.35rem;
+      font-family:'Space Mono',monospace;
+      font-size:2rem; font-weight:700;
+      color: rgba(124,58,237,0.2);
+      letter-spacing:-0.02em;
+      line-height:1;
+      padding-top:0.2rem;
+    }
+    .rule-title { font-size:1.05rem; font-weight:600; line-height:1.4; color:var(--text); padding-top:0.15rem; }
+    .rule-desc { font-size:0.93rem; line-height:1.8; color:var(--muted-l); }
+    @media (max-width:800px) {
+      .rule-item { grid-template-columns: 44px 1fr; }
+      .rule-num { font-size:1.4rem; }
+      .rule-desc { grid-column: 2; margin-top:0.5rem; }
+    }
+    @media (max-width:500px) {
+      .rule-item { grid-template-columns: 1fr; gap:0.5rem 0; }
+      .rule-desc { grid-column: 1; }
     }
 
-    .rule-body {}
-
-    .rule-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-    }
-
-    .rule-desc {
-      font-size: 0.95rem;
-      line-height: 1.75;
-      color: var(--muted-l);
-    }
-
-    /* ─── THEME SECTION ─── */
-    .theme-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .theme-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 80% 50%, rgba(232,121,249,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 10% 50%, rgba(124,58,237,0.07) 0%, transparent 60%);
-    }
-
-    .theme-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 8rem 2.5rem;
-    }
-
+    /* ─── THEME ─── */
+    .theme-section { background:var(--bg3); }
+    .theme-inner { padding:7rem 2.5rem; }
     .theme-statement {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 600;
-      line-height: 1.25;
-      letter-spacing: -0.025em;
-      color: var(--purple-xl);
-      font-style: italic;
-      max-width: 800px;
-      margin-bottom: 3rem;
-      border-left: 3px solid var(--purple);
-      padding-left: 2rem;
+      font-family:'Space Mono',monospace; font-style:italic;
+      font-size:clamp(1.2rem,2.5vw,1.9rem); color:var(--purple-l);
+      border-left:2px solid var(--purple); padding-left:2rem;
+      margin:3rem 0; line-height:1.6; max-width:700px;
     }
-
-    .theme-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 768px) { .theme-body { grid-template-columns: 1fr; } }
-
-    .theme-text p {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: var(--text-2);
-      margin-bottom: 1.25rem;
-    }
-
+    .theme-body { display:grid; grid-template-columns:1fr 1fr; gap:5rem; margin-top:3rem; }
+    @media (max-width:800px) { .theme-body { grid-template-columns:1fr; gap:2.5rem; } }
+    .theme-text p { font-size:1.05rem; line-height:1.85; color:var(--text-2); margin-bottom:1.25rem; }
     .theme-note {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      color: var(--green);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.5rem;
+      background:rgba(124,58,237,0.06); border:1px solid var(--border);
+      border-radius:4px; padding:1.5rem 2rem; margin-bottom:1rem;
+      font-size:0.95rem; line-height:1.75; color:var(--muted-l);
     }
+    .theme-note strong { color:var(--purple-l); display:block; margin-bottom:0.4rem; }
 
-    .theme-note::before { content: '//'; }
+    /* ─── VOICE ─── */
+    .voice-section { padding:7rem 2.5rem; }
+    .voice-prose { font-size:1.05rem; line-height:1.9; color:var(--text-2); max-width:720px; margin-bottom:1.5rem; }
+    .example-block { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:3rem; }
+    @media (max-width:700px) { .example-block { grid-template-columns:1fr; } }
+    .example-col { padding:2rem; border-radius:4px; }
+    .example-col.wrong { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.2); }
+    .example-col.right { background:rgba(124,58,237,0.08); border:1px solid rgba(124,58,237,0.2); }
+    .example-label { font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem; }
+    .example-col.wrong .example-label { color:var(--red); }
+    .example-col.right .example-label { color:var(--purple-l); }
+    .example-text { font-size:1rem; line-height:1.7; color:var(--text-2); font-style:italic; }
 
-    /* ─── CARDS ─── */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 2.5rem;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 2rem;
-      transition: background 0.25s;
-    }
-
-    .card:hover { background: var(--bg3); }
-
-    .card-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-
-    .card p {
-      font-size: 0.85rem;
-      line-height: 1.65;
-      color: var(--muted-l);
-    }
-
-    /* ─── VOICE & TONE ─── */
-    .voice-comparison {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 2.5rem;
-    }
-
-    @media (max-width: 640px) { .voice-comparison { grid-template-columns: 1fr; } }
-
-    .voice-col {
-      background: var(--card);
-      padding: 2.5rem;
-    }
-
-    .voice-col-head {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border-l);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .voice-col.do .voice-col-head { color: var(--green); }
-    .voice-col.dont .voice-col-head { color: var(--red); }
-
-    .voice-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 0.85rem;
-      font-size: 0.9rem;
-      line-height: 1.55;
-      color: var(--text-2);
-      align-items: flex-start;
-    }
-
-    .voice-item .marker {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      flex-shrink: 0;
-      width: 16px;
-      padding-top: 0.1rem;
-    }
-
-    .voice-col.do .voice-item .marker { color: var(--green); }
-    .voice-col.dont .voice-item .marker { color: var(--red); }
-
-    .example-block {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    @media (max-width: 640px) { .example-block { grid-template-columns: 1fr; } }
-
-    .example-col {
-      background: var(--card);
-      padding: 2rem;
-    }
-
-    .example-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .example-col.wrong .example-label { color: var(--red); }
-    .example-col.right .example-label { color: var(--green); }
-
-    .example-col .example-text {
-      font-size: 0.95rem;
-      line-height: 1.65;
-      font-style: italic;
-      color: var(--muted-l);
-    }
-
-    .example-col.right .example-text { color: var(--purple-xl); }
-
-    /* ─── VISUAL IDENTITY ─── */
-    .color-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 0.75rem;
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .color-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .swatch { display: flex; flex-direction: column; gap: 0.6rem; }
-
-    .swatch-block {
-      aspect-ratio: 1;
-      border-radius: 2px;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: transform 0.2s;
-    }
-
-    .swatch-block:hover { transform: scale(1.05); }
-
-    .swatch-name {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .swatch-hex {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-2);
-    }
-
-    .type-showcase {
-      margin-top: 3rem;
-      border: 1px solid var(--border);
-    }
-
-    .type-row {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 2rem;
-      align-items: center;
-      padding: 1.75rem 2rem;
-      border-bottom: 1px solid var(--border-l);
-    }
-
-    .type-row:last-child { border-bottom: none; }
-
-    .type-label-col {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+    /* ─── IDENTITY ─── */
+    .identity-prose { font-size:1.05rem; line-height:1.85; color:var(--text-2); max-width:680px; margin-bottom:3rem; }
+    .color-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:0.75rem; margin-bottom:3rem; }
+    @media (max-width:700px) { .color-grid { grid-template-columns:repeat(4,1fr); } }
+    .swatch-block { height:56px; border-radius:2px; margin-bottom:0.6rem; }
+    .swatch-name { font-family:'Space Mono',monospace; font-size:0.62rem; color:var(--muted-l); }
+    .swatch-hex  { font-family:'Space Mono',monospace; font-size:0.6rem; color:var(--muted); margin-top:0.15rem; }
+    .type-row { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; border:1px solid var(--border-l); padding:2rem; margin-bottom:1rem; }
+    @media (max-width:600px) { .type-row { grid-template-columns:1fr; } }
+    .type-label { font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:0.5rem; }
+    .type-sample { font-size:1.5rem; font-weight:700; }
+    .type-sample.mono { font-family:'Space Mono',monospace; font-size:1rem; font-weight:400; }
 
     /* ─── SPEAKERS ─── */
-    .speaker-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2.5rem;
-    }
-
+    .speakers-section { padding:7rem 2.5rem; }
+    .speaker-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+    @media (max-width:700px) { .speaker-grid { grid-template-columns:1fr; } }
     .speaker-card {
-      border: 1px solid var(--border);
-      padding: 2rem;
-      background: var(--card);
-      position: relative;
-      transition: border-color 0.25s, background 0.25s;
-      overflow: hidden;
+      background:var(--bg2); border:1px solid var(--border-l); padding:2rem;
+      transition:border-color 0.2s;
     }
-
-    .speaker-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--purple), var(--green));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-
-    .speaker-card:hover { border-color: rgba(124,58,237,0.4); background: var(--bg3); }
-    .speaker-card:hover::before { transform: scaleX(1); }
-
-    .speaker-card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-      color: var(--text);
-    }
-
-    .speaker-card p {
-      font-size: 0.875rem;
-      line-height: 1.65;
-      color: var(--muted-l);
-    }
-
-    .speaker-card .sc-icon {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--purple);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
+    .speaker-card:hover { border-color:var(--purple); }
+    .sc-icon { font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--purple-l); letter-spacing:0.1em; display:block; margin-bottom:1rem; }
+    .speaker-card h3 { font-size:1.1rem; margin-bottom:0.75rem; }
+    .speaker-card p { font-size:0.95rem; line-height:1.75; color:var(--muted-l); }
 
     /* ─── SPONSORS ─── */
-    .sponsor-section { background: var(--bg2); }
-
-    .sponsor-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 8rem 2.5rem;
-    }
-
-    .sponsor-table {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 640px) { .sponsor-table { grid-template-columns: 1fr; } }
-
-    .sp-col {
-      background: var(--card);
-      padding: 2.5rem;
-    }
-
-    .sp-col-head {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border-l);
-    }
-
-    .sp-col.yes .sp-col-head { color: var(--green); }
-    .sp-col.no .sp-col-head  { color: var(--red); }
-
-    .sp-item {
-      display: flex;
-      gap: 1rem;
-      padding: 0.85rem 0;
-      border-bottom: 1px solid var(--border-l);
-      font-size: 0.9rem;
-      line-height: 1.55;
-      color: var(--text-2);
-      align-items: flex-start;
-    }
-
-    .sp-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-    .sp-item .sp-mark {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      flex-shrink: 0;
-      padding-top: 0.1rem;
-    }
-
-    .sp-col.yes .sp-item .sp-mark { color: var(--green); }
-    .sp-col.no .sp-item .sp-mark  { color: var(--red); }
+    .sponsor-section { background:var(--bg2); }
+    .sponsor-inner { padding:7rem 2.5rem; }
+    .sponsor-table { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3rem; }
+    @media (max-width:640px) { .sponsor-table { grid-template-columns:1fr; } }
+    .sp-col { border:1px solid var(--border-l); padding:2rem; }
+    .sp-col.yes { border-color:rgba(124,58,237,0.25); }
+    .sp-col.no  { border-color:rgba(239,68,68,0.18); }
+    .sp-col-head { font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1.5rem; }
+    .sp-col.yes .sp-col-head { color:var(--purple-l); }
+    .sp-col.no  .sp-col-head { color:var(--red); }
+    .sp-item { font-size:0.95rem; line-height:1.7; color:var(--muted-l); margin-bottom:0.85rem; }
+    .sp-mark { margin-right:0.5rem; }
+    .sp-col.yes .sp-mark { color:var(--green); }
+    .sp-col.no  .sp-mark { color:var(--red); }
 
     /* ─── PULL QUOTE ─── */
-    .pull-quote-section {
-      padding: 6rem 2.5rem;
-      text-align: center;
-    }
-
-    .pull-quote-text {
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      font-weight: 600;
-      line-height: 1.4;
-      letter-spacing: -0.02em;
-      color: var(--purple-xl);
-      font-style: italic;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .pull-quote-section { padding:4rem 2.5rem; }
+    .pull-quote-text { font-family:'Space Mono',monospace; font-style:italic; color:var(--purple-l); line-height:1.6; }
 
     /* ─── TAGLINES ─── */
-    .marquee-wrap {
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 0;
-      background: var(--bg2);
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 0;
-      animation: marquee 30s linear infinite;
-      white-space: nowrap;
-    }
-
-    .marquee-item {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 0 3rem;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      flex-shrink: 0;
-    }
-
-    .marquee-item::after {
-      content: '·';
-      color: var(--purple);
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    .tagline-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 6rem 2.5rem;
-    }
-
-    .tagline-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 2.5rem;
-    }
-
+    .tagline-section { padding:7rem 2.5rem; }
+    .tagline-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:3rem; }
+    @media (max-width:700px) { .tagline-grid { grid-template-columns:1fr; } }
     .tagline-item {
-      background: var(--card);
-      padding: 2rem;
-      transition: background 0.2s;
+      border:1px solid var(--border-l); border-right:none; border-bottom:none;
+      padding:2rem; transition:background 0.2s;
+      display:flex; flex-direction:column; gap:0.75rem;
     }
+    .tagline-item:nth-child(3n) { border-right:1px solid var(--border-l); }
+    .tagline-item:nth-last-child(-n+3) { border-bottom:1px solid var(--border-l); }
+    .tagline-item:hover { background:var(--bg3); }
+    .tagline-context { font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+    .tagline-text { font-size:1rem; color:var(--purple-l); line-height:1.5; font-style:italic; }
+    .tagline-note { font-size:0.82rem; line-height:1.65; color:var(--muted); margin-top:auto; padding-top:0.5rem; border-top:1px solid var(--border-l); }
 
-    .tagline-item:hover { background: var(--bg3); }
+    /* ─── MARQUEE ─── */
+    .marquee-wrap { overflow:hidden; border-top:1px solid var(--border-l); border-bottom:1px solid var(--border-l); padding:1.25rem 0; }
+    .marquee-track { display:flex; white-space:nowrap; animation:marquee 30s linear infinite; }
+    .marquee-item { font-family:'Space Mono',monospace; font-size:0.8rem; color:var(--muted); padding:0 3rem; letter-spacing:0.06em; border-right:1px solid var(--border-l); flex-shrink:0; }
 
-    .tagline-context {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-      display: block;
-    }
-
-    .tagline-text {
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--purple-xl);
-      line-height: 1.45;
-      font-weight: 500;
-    }
+    /* ─── DIVIDER ─── */
+    .divider { height:1px; background:var(--border-l); margin:0 2.5rem; }
 
     /* ─── FOOTER ─── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 4rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
+    footer { padding:4rem 2.5rem; border-top:1px solid var(--border-l); display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:2rem; }
+    .footer-logo { font-family:'Space Mono',monospace; font-size:0.8rem; letter-spacing:0.1em; color:var(--muted-l); margin-bottom:0.5rem; }
+    .footer-tagline { font-size:1.1rem; color:var(--purple-l); font-style:italic; }
+    .footer-right { font-family:'Space Mono',monospace; font-size:0.75rem; color:var(--muted); line-height:1.8; text-align:right; }
 
-    .footer-left .footer-logo {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--purple-l);
-      margin-bottom: 0.5rem;
-    }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:var(--purple-d,#6d28d9); border-radius:2px; }
 
-    .footer-left .footer-tagline {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    .footer-right {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: right;
-      line-height: 1.8;
-    }
-
-    /* ─── PRINT / PDF ─── */
-    @media print {
-      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-      nav, #progress, .hero-scroll, .marquee-wrap { display: none !important; }
-      .hero { min-height: auto; padding: 4rem 2.5rem 4rem; page-break-after: always; }
-      .reveal { opacity: 1 !important; transform: none !important; }
-      .section, .rules-inner, .theme-inner, .sponsor-inner, .tagline-section { padding: 3rem 2.5rem; }
-      .manifesto-strip { padding: 3rem 2.5rem; }
-      .rule-item:hover { margin: 0; padding-left: 0; padding-right: 0; }
-      body { background: var(--bg); }
-    }
-
-    /* Force colors in headless Chrome */
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
-    /* ─── SCROLLBAR ─── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--purple-d, #6d28d9); border-radius: 2px; }
-
-    /* ─── MOBILE ─── */
-    @media (max-width: 600px) {
-      nav { padding: 0 1.25rem; }
-      .nav-logo { font-size: 0.62rem; }
-
-      .hero { padding: 0 1.25rem 4rem; min-height: 100svh; }
-      .hero-eyebrow { margin-bottom: 1.25rem; }
-      .hero-title { letter-spacing: -0.03em; margin-bottom: 1.25rem; }
-      .hero-sub { font-size: 0.85rem; margin-bottom: 2rem; }
-      .hero-meta { flex-direction: column; gap: 0; }
-      .hero-meta-item { border-right: 1px solid var(--border); padding: 0.9rem 1.25rem; }
-      .hero-scroll { display: none; }
-
-      .manifesto-strip { padding: 3.5rem 1.25rem; }
-
-      .section { padding: 4rem 1.25rem; }
-      .rules-inner { padding: 4rem 1.25rem; }
-      .theme-inner { padding: 4rem 1.25rem; }
-      .sponsor-inner { padding: 4rem 1.25rem; }
-      .tagline-section { padding: 4rem 1.25rem; }
-      .pull-quote-section { padding: 3rem 1.25rem; }
-
-      .about-grid { gap: 2rem; }
-
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .stats-row .stat:nth-child(2) { border-right: none; }
-      .stats-row .stat:nth-child(4) { border-right: none; }
-      .stat { padding: 1.5rem 1rem; }
-      .stat-num { font-size: 2rem; }
-
-      .rule-item { grid-template-columns: 40px 1fr; gap: 1rem; padding: 1.75rem 0; }
-      .rule-item:hover { margin: 0; padding-left: 0; padding-right: 0; }
-      .rule-title { font-size: 1.1rem; }
-
-      .type-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem; }
-
-      .color-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
-
-      .speaker-grid { grid-template-columns: 1fr; }
-
-      .divider { margin: 0 1.25rem; }
-
-      .footer { flex-direction: column; padding: 3rem 1.25rem; gap: 1.25rem; }
-      .footer-right { text-align: left; }
-
-      .tagline-grid { grid-template-columns: 1fr; }
-
-      h2 { letter-spacing: -0.025em; }
-      .lead { font-size: 1rem; }
-
-      .theme-statement { font-size: 1.3rem; padding-left: 1.25rem; }
+    @media (max-width:600px) {
+      nav { padding:0 1.25rem; }
+      .hero { padding:0 1.25rem 4rem; min-height:100svh; }
+      .hero-eyebrow { margin-bottom:1.25rem; }
+      .hero-title { letter-spacing:-0.03em; margin-bottom:1.25rem; }
+      .hero-sub { font-size:0.85rem; margin-bottom:2rem; }
+      .hero-meta { flex-direction:column; }
+      .hero-meta-item { border-right:1px solid var(--border); padding:0.9rem 1.25rem; }
+      .hero-scroll { display:none; }
+      .manifesto-strip { padding:3.5rem 1.25rem; }
+      .section, .voice-section, .speakers-section, .tagline-section { padding:4rem 1.25rem; }
+      .rules-inner, .theme-inner, .sponsor-inner { padding:4rem 1.25rem; }
+      .stats-row { grid-template-columns:repeat(2,1fr); }
+      .stat { padding:1.5rem 1rem; }
+      .stat-num { font-size:2rem; }
+      .rule-item { grid-template-columns:40px 1fr; gap:1rem; padding:1.75rem 0; }
+      .color-grid { grid-template-columns:repeat(4,1fr); gap:0.5rem; }
+      .speaker-grid { grid-template-columns:1fr; }
+      .divider { margin:0 1.25rem; }
+      .footer { flex-direction:column; padding:3rem 1.25rem; gap:1.25rem; }
+      .footer-right { text-align:left; }
+      .tagline-grid { grid-template-columns:1fr; }
+      h2 { letter-spacing:-0.025em; }
+      .lead { font-size:1rem; }
+      .pull-quote-section { padding:3rem 1.25rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- PROGRESS BAR -->
 <div id="progress"></div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">BSidesTLV · Brand Book 2026</div>
   <ul class="nav-links">
@@ -1185,53 +457,37 @@
       Alice in<br>
       <span class="line2">AI Land.</span>
     </h1>
-    <p class="hero-sub">The hallucination is beautiful.<br>Don't stop looking underneath it.</p>
+    <p class="hero-sub">There's a version of this where we say something punchy about hallucinations. Instead: we've been watching the security community try to get its bearings while the ground keeps shifting, and it felt like the right year to build a conference around that honest uncertainty rather than perform confidence about it.</p>
     <div class="hero-meta">
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Date</div>
-        <div class="hero-meta-value">25 June 2026</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Venue</div>
-        <div class="hero-meta-value">Smolarz Auditorium</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Location</div>
-        <div class="hero-meta-value">Tel Aviv University</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Since</div>
-        <div class="hero-meta-value">2013</div>
-      </div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Date</div><div class="hero-meta-value">25 June 2026</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Venue</div><div class="hero-meta-value">Smolarz Auditorium</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Location</div><div class="hero-meta-value">Tel Aviv University</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Since</div><div class="hero-meta-value">2013</div></div>
     </div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Scroll to explore
-  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll to explore</div>
 </section>
 
 <!-- ─── MANIFESTO STRIP ─── -->
 <div class="manifesto-strip" id="who">
-  <p class="reveal">Israel's only security conference <em>built by the community,<br>for the community.</em></p>
-  <p class="reveal reveal-delay-2" style="font-size: clamp(0.9rem, 1.5vw, 1.1rem); font-weight: 400; color: var(--muted-l); margin-top: 1.5rem;">100% volunteer-run · 100% non-profit · Every shekel back to the community</p>
+  <p class="reveal">Israel's only security conference <em>built by the community, for the community.</em></p>
+  <p class="reveal reveal-delay-2" style="font-size:clamp(0.9rem,1.5vw,1.1rem); font-weight:400; color:var(--muted-l); margin-top:1.5rem;">100% volunteer-run · 100% non-profit · Every shekel back to the community</p>
 </div>
 
 <!-- ─── WHO WE ARE ─── -->
 <div class="section">
   <p class="section-label reveal">01 — Who We Are</p>
-  <h2 class="reveal">Real research.<br>No shortcuts.</h2>
+  <h2 class="reveal">Thirteen years of research that doesn't have anything to sell.</h2>
 
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>BSidesTLV was founded in 2013 as part of the global Security BSides movement — a network of community-organised security conferences that put real research ahead of commercial interests.</p>
-      <p>We bring together security researchers, engineers, students, hackers, and industry leaders for a full day of world-class talks, hands-on villages, and one of the most respected CTF competitions in the region.</p>
-      <p>We are a registered non-profit. Every shekel goes back to the community: better talks, more accessible registration, stronger CTF infrastructure, and a culture that welcomes everyone from first-time participants to veterans of the scene.</p>
-      <p style="color: var(--muted-l); font-style: italic;">We never sell speaking slots, and we don't share participant data with sponsors. The price is never the story.</p>
+      <p>BSidesTLV started in 2013 as part of the global Security BSides movement — a network of community-organised conferences that emerged because people were tired of the alternative. The alternative being expensive tickets, sponsored keynotes, and the persistent sense that the event was designed to serve vendors rather than the people actually doing security work.</p>
+      <p>We bring together researchers, engineers, students, and the kind of hackers who don't fit neatly into any of those categories for a full day of talks, hands-on villages, and one of the most competitive CTF events in the region. The audience is technically sophisticated and has a finely tuned sense for when someone in front of a microphone is performing expertise versus actually having it.</p>
+      <p>We're a registered non-profit, which means every shekel we bring in goes back into running the event — lower ticket prices, stronger CTF infrastructure, better AV, the things that make the difference between a conference that works and one that doesn't. There are no shareholders and no margin being extracted. We don't sell speaking slots, and we don't give your information to sponsors.</p>
     </div>
     <div class="about-aside reveal reveal-delay-2">
       <p class="about-aside-quote">"Local energy. Global credibility."</p>
-      <p style="font-size: 0.95rem; line-height: 1.75; color: var(--muted-l);">Part of the global Security BSides network — a movement that gave communities the tools to run their own conferences without commercial compromise. Tel Aviv's chapter has become one of the most respected in the world.</p>
+      <p style="font-size:0.95rem; line-height:1.8; color:var(--muted-l);">The Security BSides movement gave communities the infrastructure to run their own events without commercial compromise. Tel Aviv's chapter has been running long enough that it doesn't need to justify itself — but we still act like it does, because that's the standard that got it here.</p>
       <div class="about-tags">
         <span class="tag">Non-profit</span>
         <span class="tag">Volunteer-run</span>
@@ -1242,27 +498,12 @@
     </div>
   </div>
 
-  <div class="stats-row reveal" style="margin-top: 4rem;">
-    <div class="stat">
-      <span class="stat-num">10+</span>
-      <div class="stat-label">Years Running</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">1,200+</span>
-      <div class="stat-label">Participants (2025)</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">54h</span>
-      <div class="stat-label">CTF (2025)</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">100%</span>
-      <div class="stat-label">Volunteer-Run</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">100%</span>
-      <div class="stat-label">Non-Profit</div>
-    </div>
+  <div class="stats-row reveal" style="margin-top:4rem;">
+    <div class="stat"><span class="stat-num">10+</span><div class="stat-label">Years Running</div></div>
+    <div class="stat"><span class="stat-num">1,200+</span><div class="stat-label">Participants (2025)</div></div>
+    <div class="stat"><span class="stat-num">54h</span><div class="stat-label">CTF (2025)</div></div>
+    <div class="stat"><span class="stat-num">100%</span><div class="stat-label">Volunteer-Run</div></div>
+    <div class="stat"><span class="stat-num">100%</span><div class="stat-label">Non-Profit</div></div>
   </div>
   <p class="reveal" style="font-size:0.8rem; color:var(--muted); margin-top:1rem;">* Village count and format varies by year. Verify 2026 lineup with organizers before publishing.</p>
 </div>
@@ -1271,155 +512,184 @@
 <div class="rules-section" id="values">
   <div class="rules-inner">
     <p class="section-label reveal">02 — What We Stand For</p>
-    <h2 class="reveal">The non-negotiables.</h2>
-    <p class="lead reveal">These aren't guidelines. They're the foundation. Everything we publish, every partnership we accept, every decision we make is measured against these.</p>
+    <h2 class="reveal">Six rules we use to make every decision.</h2>
+    <p class="lead reveal">These aren't aspirational statements — they're the actual criteria we apply when a sponsorship deal looks interesting, when someone asks for an exception to the CFP process, when we're deciding what to publish. If a proposed action conflicts with any of these, the answer is no.</p>
 
     <div class="rule-list">
+
       <div class="rule-item reveal">
         <div class="rule-num">01</div>
-        <div class="rule-body">
-          <div class="rule-title">No pay-to-speak. Ever.</div>
-          <div class="rule-desc">Speaking at BSidesTLV is earned through the quality of research — not budget. No sponsor buys a keynote. The CFP process is blind. That's not a policy. That's a promise.</div>
-        </div>
+        <div class="rule-title">Speaking slots are earned through research quality, not commercial relationship.</div>
+        <div class="rule-desc">We say this explicitly because conferences that describe themselves as community-driven have been caught doing otherwise, and the audience knows it. The CFP is blind: reviewers score submissions without seeing name, employer, or job title. That process is separate from sponsorship — a company can write us a significant cheque and not get a slot out of it.</div>
       </div>
+
       <div class="rule-item reveal">
         <div class="rule-num">02</div>
-        <div class="rule-body">
-          <div class="rule-title">Participant data stays with participants.</div>
-          <div class="rule-desc">Attendees choose to be here. We never hand their information to sponsors, partners, or anyone else. No lead lists. No data exports. No exceptions.</div>
-        </div>
+        <div class="rule-title">We don't give participant information to sponsors or partners, under any circumstances.</div>
+        <div class="rule-desc">Attendees register because they want to attend, not because they're opting into a lead generation programme. No contact exports, no attendee lists shared with sponsors, no matter the tier or the ask. This isn't a GDPR posture — it's basic respect for the people the conference is built for.</div>
       </div>
+
       <div class="rule-item reveal">
         <div class="rule-num">03</div>
-        <div class="rule-body">
-          <div class="rule-title">Every shekel goes back to the community.</div>
-          <div class="rule-desc">We are a non-profit. Revenue funds the event — better infrastructure, accessible registration, a stronger CTF. There is no margin. There are no shareholders.</div>
-        </div>
+        <div class="rule-title">Every shekel we take in goes back into making the conference better.</div>
+        <div class="rule-desc">We're a registered non-profit. Ticket and sponsorship revenue funds the event — lower registration costs, better AV, CTF prizes, the things that actually affect what it's like to be there. No shareholders, no margin extracted. Surplus goes toward making the next edition stronger.</div>
       </div>
+
       <div class="rule-item reveal">
         <div class="rule-num">04</div>
-        <div class="rule-body">
-          <div class="rule-title">Research first. Always.</div>
-          <div class="rule-desc">BSidesTLV is for research that is independent, deep, and honest. Talks that challenge assumptions, expose real problems, and don't have a product to sell. That's exactly who we're here for.</div>
-        </div>
+        <div class="rule-title">The standard for getting on stage is research quality, applied consistently.</div>
+        <div class="rule-desc">BSidesTLV exists to give independent, technically serious research a stage that isn't dependent on having the right employer or budget. If a submission reads like vendor marketing, it won't make it through the CFP — regardless of who submitted it.</div>
       </div>
+
       <div class="rule-item reveal">
         <div class="rule-num">05</div>
-        <div class="rule-body">
-          <div class="rule-title">Community over hype.</div>
-          <div class="rule-desc">We don't chase trends. We don't optimise for impressions. If a decision serves the community, it's right. If it serves the brand first — reconsider it.</div>
-        </div>
+        <div class="rule-title">When community benefit and brand benefit conflict, community wins.</div>
+        <div class="rule-desc">There are decisions where doing what's good for the community and doing what makes BSidesTLV look impressive point in different directions. We've made both kinds of call. The ones that went wrong were the ones where we prioritised impressions. The metric is simple: does this serve the people who come, or the narrative around it?</div>
       </div>
+
       <div class="rule-item reveal">
         <div class="rule-num">06</div>
-        <div class="rule-body">
-          <div class="rule-title">Volunteer work is credited work.</div>
-          <div class="rule-desc">The people who build BSidesTLV give their time for free. That contribution is acknowledged, attributed, and not overridden.</div>
-        </div>
+        <div class="rule-title">Volunteer contributions are credited and protected.</div>
+        <div class="rule-desc">BSidesTLV is built by people who give their evenings and weekends because they care about it. That work is credited publicly, attributed properly, and doesn't get overridden by someone with a louder voice or a more senior title. The conference exists because those people built it — and that's the actual history, not a talking point.</div>
       </div>
+
     </div>
   </div>
 </div>
 
 <!-- ─── THEME ─── -->
 <div class="theme-section" id="theme">
-  <div class="theme-bg"></div>
   <div class="theme-inner">
     <p class="section-label reveal">03 — The 2026 Theme</p>
     <h2 class="reveal">Alice in AI Land.</h2>
 
     <blockquote class="theme-statement reveal">
-      "Most of us are somewhere between nervous and moving too fast — pretending we're more certain than we are. BSidesTLV 2026 is for all of us."
+      "Most of us are somewhere between nervous and moving too fast, and we're performing certainty we don't have. BSidesTLV 2026 is a conference for people willing to admit that."
     </blockquote>
 
     <div class="theme-body">
       <div class="theme-text reveal">
-        <p>The security community is living through the same disorientation Alice felt in Wonderland. Rules are shifting. Models are hallucinating. Trust is unstable. Nobody is as certain as they pretend to be.</p>
-        <p>Alice followed the White Rabbit anyway. So do we — but we came prepared.</p>
-        <div class="theme-note" style="margin-top: 1.5rem;">AI is the backdrop, not a requirement.</div>
-        <p style="font-size: 0.9rem; color: var(--muted-l);">The theme shapes aesthetic and framing — not submission criteria. Not every talk needs an AI angle. The conference is a security conference first.</p>
+        <p>If you work in security you've spent the last two years watching the assumptions you built your mental model on get challenged in ways that are interesting, alarming, and sometimes both at once. The rules are shifting. Models are confidently wrong about things that matter. The trust hierarchies that used to be stable are wobbling. And nobody in the room is quite as certain about where this goes as they appear to be in public — including us.</p>
+        <p>Alice followed the White Rabbit anyway. She didn't wait until Wonderland made sense before she started paying attention to it, and she didn't pretend it was fine when it clearly wasn't. That's the disposition we're trying to build the conference around this year — honest curiosity rather than performed expertise, rigorous skepticism over confident positioning.</p>
+        <p>Worth being clear about what the theme doesn't mean: not every talk needs an AI angle, and the Alice framing shapes the aesthetic and editorial voice, not the submission criteria. The conference is a security conference first. The theme is the backdrop, not a filter.</p>
       </div>
-      <div class="reveal reveal-delay-2">
-        <div class="card-grid">
-          <div class="card">
-            <span class="card-tag">Village</span>
-            <h3>AI Hacking Village</h3>
-            <p>Break the models before the models break you.</p>
-          </div>
-          <div class="card">
-            <span class="card-tag">Village</span>
-            <h3>Hardware Village</h3>
-            <p>Get your hands dirty.</p>
-          </div>
-          <div class="card">
-            <span class="card-tag">Village</span>
-            <h3>Bug Bounty Village</h3>
-            <p>Find the bugs. Own the disclosure.</p>
-          </div>
-          <div class="card">
-            <span class="card-tag">Main Stage</span>
-            <h3>Auditorium</h3>
-            <p>World-class research. No product pitches.</p>
-          </div>
-          <div class="card">
-            <span class="card-tag">54h</span>
-            <h3>Capture the Flag</h3>
-            <p>Sleep not recommended.</p>
-          </div>
-          <div class="card">
-            <span class="card-tag">Hands-on</span>
-            <h3>Workshops</h3>
-            <p>Build it. Break it. Understand why.</p>
-          </div>
+      <div class="reveal reveal-delay-1">
+        <div class="theme-note">
+          <strong>AI Hacking Village</strong>
+          Adversarial testing of AI systems — breaking models, examining failure modes, understanding what happens when the outputs can't be trusted. Hands-on, no cheerleading.
+        </div>
+        <div class="theme-note">
+          <strong>Hardware Village</strong>
+          Physical hardware, taken apart and examined by people who want to understand what's actually inside it. Tools and hands required.
+        </div>
+        <div class="theme-note">
+          <strong>Bug Bounty Village</strong>
+          Finding vulnerabilities and navigating the disclosure process, in a room with people who understand both sides of that conversation.
+        </div>
+        <div class="theme-note">
+          <strong>Main Stage — Smolarz Auditorium</strong>
+          World-class research, selected blind. The CFP is how you get here — not a title or a sponsor relationship.
+        </div>
+        <div class="theme-note">
+          <strong>Capture the Flag — 54 hours</strong>
+          One of the most competitive CTF events in the region. Sleep is technically optional.
+        </div>
+        <div class="theme-note">
+          <strong>Workshops</strong>
+          Hands-on sessions designed to leave you with a skill you didn't have when you arrived. Build it, break it, understand the why.
         </div>
       </div>
     </div>
+
+    <div class="pull-quote-section reveal" style="padding:3rem 0 0; padding-bottom:0;">
+      <p class="pull-quote-text" style="font-size:clamp(1.1rem,2vw,1.6rem);">"AI promised us Wonderland. We're here to check the code."</p>
+    </div>
   </div>
 </div>
-
-<!-- ─── PULL QUOTE ─── -->
-<div class="pull-quote-section reveal">
-  <p class="pull-quote-text">"AI promised us Wonderland.<br>We're here to check the code."</p>
-</div>
-
-<div class="divider"></div>
 
 <!-- ─── VOICE & TONE ─── -->
-<div class="section" id="voice">
+<div class="voice-section" id="voice">
   <p class="section-label reveal">04 — Voice &amp; Tone</p>
   <h2 class="reveal">How BSidesTLV speaks.</h2>
-  <p class="lead reveal">Our audience is technically sophisticated and deeply allergic to marketing fluff. They can tell the difference between a real community and a brand performing community. Write accordingly.</p>
 
-  <div class="voice-comparison reveal">
-    <div class="voice-col do">
-      <div class="voice-col-head">We sound like this</div>
-      <div class="voice-item"><span class="marker">+</span> Direct. We say what we mean without filler.</div>
-      <div class="voice-item"><span class="marker">+</span> Dry and confident. Wit comes from honesty, not cleverness.</div>
-      <div class="voice-item"><span class="marker">+</span> Earned. We reference the community's real work.</div>
-      <div class="voice-item"><span class="marker">+</span> Inclusive without being precious. First-timers welcome. Veterans home.</div>
-      <div class="voice-item"><span class="marker">+</span> Specific. Real formats, real durations, real stakes.</div>
-      <div class="voice-item"><span class="marker">+</span> Occasionally dark. This is a hacker conference. Own it.</div>
-    </div>
-    <div class="voice-col dont">
-      <div class="voice-col-head">We don't sound like this</div>
-      <div class="voice-item"><span class="marker">—</span> Hype without substance. Enthusiasm needs to be earned.</div>
-      <div class="voice-item"><span class="marker">—</span> AI-optimised buzzwords. "Unlock your potential."</div>
-      <div class="voice-item"><span class="marker">—</span> Generic event copy. "Network with industry leaders."</div>
-      <div class="voice-item"><span class="marker">—</span> Gatekeeping. The community is broad — don't perform exclusivity.</div>
-      <div class="voice-item"><span class="marker">—</span> Claims we can't stand behind.</div>
-      <div class="voice-item"><span class="marker">—</span> Manufactured urgency for its own sake.</div>
-    </div>
-  </div>
+  <p class="voice-prose reveal">The people who come to BSidesTLV have good radar for inauthenticity. They've attended enough conferences to know the difference between a genuine community event and a commercial event performing community, and they find the distinction interesting rather than polite. Write like you know they're in the room.</p>
 
-  <div class="example-block reveal" style="margin-top: 2rem;">
-    <div class="example-col wrong">
-      <div class="example-label">Wrong</div>
-      <p class="example-text">"Join us for an exciting journey into the future of cybersecurity at BSidesTLV 2026, where the brightest minds come together to shape tomorrow's threat landscape!"</p>
+  <p class="voice-prose reveal">In practice, that means saying what you mean without building a scaffold of enthusiasm around it first. Reference real things — actual formats, actual timelines, what the CFP process actually involves — because vague claims about bringing people together or shaping the future of security read like they were generated rather than written. Dry wit works well here because it comes from honesty rather than effort. Long sentences are fine when the thought requires them. The goal is to sound like a person who cares about this conference wrote it, not a brand strategist who optimized for impact-per-word.</p>
+
+  <p class="voice-prose reveal">Things that mark copy as wrong for this context: hype that runs ahead of substance, phrasing that could have come from any tech event, anything that performs inclusivity rather than just being inclusive, and manufactured urgency. The audience is sophisticated enough to notice all of these, and they won't think better of BSidesTLV for it.</p>
+
+  <div style="margin-top:2.5rem; display:flex; flex-direction:column; gap:1rem;">
+
+    <div style="margin-bottom:0.25rem;">
+      <p style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);">General / Conference identity</p>
     </div>
-    <div class="example-col right">
-      <div class="example-label">Right</div>
-      <p class="example-text">"BSidesTLV is for research that is independent, deep, and honest. The CFP is blind. We don't sell slots. If you have something real to say, this is your table."</p>
+    <div class="example-block reveal">
+      <div class="example-col wrong">
+        <div class="example-label">Wrong</div>
+        <p class="example-text">"Join us for an exciting journey into the future of cybersecurity at BSidesTLV 2026, where the brightest minds come together to shape tomorrow's threat landscape!"</p>
+      </div>
+      <div class="example-col right">
+        <div class="example-label">Right</div>
+        <p class="example-text">"BSidesTLV is for research that is independent, deep, and honest. The CFP is blind. We don't sell slots. If you have something real to say, this is your table."</p>
+      </div>
     </div>
+
+    <div style="margin-top:1.5rem; margin-bottom:0.25rem;">
+      <p style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);">Speaker invitation / CFP</p>
+    </div>
+    <div class="example-block reveal">
+      <div class="example-col wrong">
+        <div class="example-label">Wrong</div>
+        <p class="example-text">"Share your expertise and inspire the next generation of cybersecurity professionals! Submit your talk to BSidesTLV 2026 and help shape the conversation around the challenges that matter most."</p>
+      </div>
+      <div class="example-col right">
+        <div class="example-label">Right</div>
+        <p class="example-text">"The CFP is blind. Reviewers don't see your name, your employer, or your title — just what you want to say and how well you can say it. If you've been sitting on something real, this is the year to submit it."</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem; margin-bottom:0.25rem;">
+      <p style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);">CTF promotion</p>
+    </div>
+    <div class="example-block reveal">
+      <div class="example-col wrong">
+        <div class="example-label">Wrong</div>
+        <p class="example-text">"Put your skills to the ultimate test in our thrilling 54-hour Capture The Flag competition — an unforgettable challenge that pushes you beyond your limits!"</p>
+      </div>
+      <div class="example-col right">
+        <div class="example-label">Right</div>
+        <p class="example-text">"The CTF runs 54 hours. It's one of the most competitive in the region. Sleep is technically optional, though the people at the top of the scoreboard will tell you it mostly isn't."</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem; margin-bottom:0.25rem;">
+      <p style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);">Sponsor pitch</p>
+    </div>
+    <div class="example-block reveal">
+      <div class="example-col wrong">
+        <div class="example-label">Wrong</div>
+        <p class="example-text">"Unlock unparalleled access to a highly engaged community of security innovators and position your brand at the forefront of Israel's fastest-growing cybersecurity ecosystem."</p>
+      </div>
+      <div class="example-col right">
+        <div class="example-label">Right</div>
+        <p class="example-text">"The audience is technical, hard to reach, and allergic to marketing that performs rather than earns. If your brand can hold its own in that room, sponsoring BSidesTLV is one of the better ways to be in it."</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem; margin-bottom:0.25rem;">
+      <p style="font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);">AI / Theme framing</p>
+    </div>
+    <div class="example-block reveal">
+      <div class="example-col wrong">
+        <div class="example-label">Wrong</div>
+        <p class="example-text">"Explore the cutting-edge intersection of AI and cybersecurity at BSidesTLV 2026 — where visionary researchers are redefining what's possible in an era of unprecedented technological transformation."</p>
+      </div>
+      <div class="example-col right">
+        <div class="example-label">Right</div>
+        <p class="example-text">"The theme is Alice in AI Land. It fits. The security community has spent two years watching the ground shift under assumptions it thought were stable — and most people in the room are more uncertain about where this goes than they're letting on publicly."</p>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1428,72 +698,71 @@
 <!-- ─── VISUAL IDENTITY ─── -->
 <div class="section" id="identity">
   <p class="section-label reveal">05 — Visual Identity</p>
-  <h2 class="reveal">The look of the thing.</h2>
-  <p class="lead reveal">Dark foundations. Neon edges. Hacker aesthetic meets Alice in Wonderland. Precise but alive. Two fonts. Seven colors. No exceptions.</p>
+  <h2 class="reveal">The visual system.</h2>
+
+  <p class="identity-prose reveal">The design language for 2026 sits in a specific zone: dark backgrounds as the default, with purple, neon green, and pink as accent colours that feel at home in a terminal at 2am but have enough visual precision to not look like they were assembled in a hurry. The Alice in Wonderland layer adds something deliberately unpredictable — slightly surreal, willing to be strange — over what would otherwise be a straightforward hacker aesthetic. That combination is intentional and it's worth protecting.</p>
+
+  <p class="identity-prose reveal">Two typefaces cover the whole system. Space Grotesk handles everything that needs weight — headings, display copy, body text that needs to read at size. Space Mono handles the things that should feel technical: labels, callouts, timestamps, code blocks, anything that benefits from looking like it was produced by a machine. Light mode exists for contexts you don't control — print, co-branding, surfaces that won't be dark — and it uses the same palette shifted to work on lighter backgrounds.</p>
 
   <div class="color-grid reveal">
-    <div class="swatch">
-      <div class="swatch-block" style="background:#07070f; border-color: #222;"></div>
-      <div class="swatch-name">Background</div>
-      <div class="swatch-hex">#07070F</div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#07070F; border:1px solid rgba(255,255,255,0.08);"></div>
+      <div class="swatch-name">Background</div><div class="swatch-hex">#07070F</div>
     </div>
-    <div class="swatch">
-      <div class="swatch-block" style="background:#7c3aed;"></div>
-      <div class="swatch-name">Purple</div>
-      <div class="swatch-hex">#7C3AED</div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#7C3AED;"></div>
+      <div class="swatch-name">Purple</div><div class="swatch-hex">#7C3AED</div>
     </div>
-    <div class="swatch">
-      <div class="swatch-block" style="background:#c4b5fd;"></div>
-      <div class="swatch-name">Purple Light</div>
-      <div class="swatch-hex">#C4B5FD</div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#C4B5FD;"></div>
+      <div class="swatch-name">Purple Light</div><div class="swatch-hex">#C4B5FD</div>
     </div>
-    <div class="swatch">
-      <div class="swatch-block" style="background:#a3e635;"></div>
-      <div class="swatch-name">Neon Green</div>
-      <div class="swatch-hex">#A3E635</div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#A3E635;"></div>
+      <div class="swatch-name">Neon Green</div><div class="swatch-hex">#A3E635</div>
     </div>
-    <div class="swatch">
-      <div class="swatch-block" style="background:#e879f9;"></div>
-      <div class="swatch-name">Pink</div>
-      <div class="swatch-hex">#E879F9</div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#E879F9;"></div>
+      <div class="swatch-name">Pink</div><div class="swatch-hex">#E879F9</div>
     </div>
-    <div class="swatch">
-      <div class="swatch-block" style="background:#e2e8f0;"></div>
-      <div class="swatch-name">Text</div>
-      <div class="swatch-hex">#E2E8F0</div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#E2E8F0;"></div>
+      <div class="swatch-name">Text</div><div class="swatch-hex">#E2E8F0</div>
     </div>
-    <div class="swatch">
-      <div class="swatch-block" style="background:#64748b;"></div>
-      <div class="swatch-name">Muted</div>
-      <div class="swatch-hex">#64748B</div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#64748B;"></div>
+      <div class="swatch-name">Muted</div><div class="swatch-hex">#64748B</div>
     </div>
   </div>
 
-  <div class="type-showcase reveal" style="margin-top: 3rem;">
-    <div class="type-row">
-      <div class="type-label-col">Display / Headings</div>
-      <div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(1.5rem,3vw,2.5rem); font-weight:700; letter-spacing:-0.03em; color:var(--text);">Space Grotesk Bold</div>
+  <div class="type-row reveal">
+    <div>
+      <div class="type-label">Display / Headings</div>
+      <div class="type-sample">Space Grotesk Bold</div>
     </div>
-    <div class="type-row">
-      <div class="type-label-col">Labels / Code</div>
-      <div style="font-family:'Space Mono',monospace; font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted-l);">SPACE MONO — LABELS, CODE, CALLOUTS</div>
+    <div>
+      <div class="type-label">Labels / Code / Callouts</div>
+      <div class="type-sample mono">SPACE MONO — LABELS, CODE, CALLOUTS</div>
     </div>
-    <div class="type-row">
-      <div class="type-label-col">Mono Italic</div>
-      <div style="font-family:'Space Mono',monospace; font-size:0.9rem; font-style:italic; color:var(--purple-xl);">"The hallucination is beautiful."</div>
+  </div>
+  <div class="type-row reveal">
+    <div>
+      <div class="type-label">Mono Italic</div>
+      <div class="type-sample mono" style="font-style:italic;">"The hallucination is beautiful."</div>
+    </div>
+    <div>
+      <div class="type-label">Usage note</div>
+      <p style="font-size:0.9rem; color:var(--muted-l); line-height:1.7; padding-top:0.25rem;">Mono italic is for pull quotes and moments where the voice needs to slow down. Use it sparingly enough that it still lands when it appears.</p>
     </div>
   </div>
 
-  <div class="speaker-card reveal" style="margin-top: 2rem;">
-    <span class="sc-icon">// Logo Usage</span>
-    <h3>Handle the logo with respect.</h3>
-    <p>Two versions: dark background (neon) and light background (solid). Use the right one for the context. Do not recolor. Do not distort. Do not add shadows, strokes, or glows beyond the original. Maintain clear space equal to the height of the B on all sides. Do not place on busy backgrounds without a dark overlay.</p>
+  <div style="margin-top:3rem;" class="reveal">
+    <p class="section-label" style="margin-bottom:1rem;">Logo usage</p>
+    <p style="font-size:1rem; line-height:1.85; color:var(--muted-l); max-width:680px;">There are two logo versions — one for dark backgrounds (the primary case) and one for light surfaces, which includes print and co-branded materials. Use the version that matches the surface. Don't recolour it, don't distort it, don't apply shadows or glows beyond what's in the original file. Keep clear space equal to the height of the B on all sides, and if the background is busy, put a dark overlay under the logo rather than placing it directly on a complex image.</p>
   </div>
 </div>
 
 <!-- ─── ASSETS ─── -->
-<div class="divider"></div>
-
 <div class="section" id="assets">
   <p class="section-label reveal">06 — Brand Assets</p>
   <h2 class="section-title reveal">Logo &amp; Icons</h2>
@@ -1553,48 +822,31 @@
 </div>
 
 <!-- ─── SPEAKERS ─── -->
-<div class="divider"></div>
-
-<div class="section" id="speakers">
+<div class="speakers-section" id="speakers">
   <p class="section-label reveal">07 — For Speakers</p>
-  <h2 class="reveal">You have something to say.</h2>
-  <p class="lead reveal">The BSidesTLV CFP is fair, blind, and community-reviewed. We don't sell slots. We don't care about your job title. Every voice belongs at this table — including yours.</p>
+  <h2 class="reveal">If you have real research, this is where it belongs.</h2>
+  <p class="lead reveal">The BSidesTLV CFP is reviewed by people in the community who are evaluating submissions on originality, technical depth, and whether the talk has something honest to say. Reviewers don't see your name or employer during scoring. Your job title isn't a criterion. If you've been holding off on submitting because you weren't sure a conference like this was for you, it probably is.</p>
 
   <div class="speaker-grid">
     <div class="speaker-card reveal">
-      <span class="sc-icon">// Process</span>
-      <h3>Blind Review</h3>
-      <p>Reviewers do not see your name, employer, or affiliation during initial scoring. We evaluate on originality, technical depth, community relevance, and clarity. Job title is not a criterion.</p>
+      <span class="sc-icon">// What we're looking for</span>
+      <h3>Research that makes the room smarter</h3>
+      <p>Offensive and defensive research, AI and ML security, hardware, cloud and supply chain, bug bounty, new tool releases, policy, and the human side of the field. The common thread is that the work is technically grounded and honest about what it knows and doesn't know.</p>
     </div>
     <div class="speaker-card reveal reveal-delay-1">
-      <span class="sc-icon">// Policy</span>
-      <h3>No Pay-to-Speak</h3>
-      <p>Speaking slots are never for sale. Sponsors do not get speaking access. A title-sponsor acknowledgment at opening is not a talk. The CFP process is separate from all commercial arrangements.</p>
-    </div>
-    <div class="speaker-card reveal reveal-delay-2">
-      <span class="sc-icon">// Commitment</span>
-      <h3>Everyone Hears Back</h3>
-      <p>Accepted or not — we notify every submitter. If your talk isn't selected this year, the table is open again next year.</p>
-    </div>
-    <div class="speaker-card reveal">
-      <span class="sc-icon">// Wanted</span>
-      <h3>What We're Looking For</h3>
-      <p>Offensive and defensive research. AI/ML security. Hardware hacking. Cloud and supply chain. Bug bounty. Tool releases. Policy. The human side of security. Anything that makes the room smarter.</p>
-    </div>
-    <div class="speaker-card reveal reveal-delay-1">
-      <span class="sc-icon">// Not Wanted</span>
-      <h3>What We Don't Accept</h3>
-      <p>Product pitches. Vendor promotions. Talks already presented at BSidesTLV within two years. Anything that violates our Code of Conduct.</p>
+      <span class="sc-icon">// What we don't accept</span>
+      <h3>What gets filtered out</h3>
+      <p>Product pitches, vendor promotions that are dressed up as research, talks that have already run at BSidesTLV in the past two years, and anything that violates the Code of Conduct. If you're unsure whether your talk crosses one of these lines, read the CFP guidelines carefully before submitting.</p>
     </div>
     <div class="speaker-card reveal reveal-delay-2">
       <span class="sc-icon">// Formats</span>
-      <h3>Session Formats</h3>
-      <p>20-minute talk. 40-minute talk. Workshop (hands-on, requires equipment list + cap). Village proposals submitted separately.</p>
+      <h3>What's available</h3>
+      <p>20-minute talk, 40-minute talk, or workshop — workshops are hands-on, require an equipment list, and have a capped attendance. Village proposals go through a separate process; contact the organizers for the right channel. Every submitter hears back either way.</p>
     </div>
   </div>
 
-  <div class="pull-quote-section reveal" style="padding: 3rem 0 0;">
-    <p class="pull-quote-text" style="font-size:clamp(1.1rem,2vw,1.6rem);">"First-time speaker? The Queen won't have your head.<br>We promise."</p>
+  <div class="pull-quote-section reveal" style="padding:3rem 0 0;">
+    <p class="pull-quote-text" style="font-size:clamp(1.1rem,2vw,1.6rem);">"First-time speaker? The Queen won't have your head. We promise."</p>
   </div>
 </div>
 
@@ -1603,47 +855,47 @@
   <div class="sponsor-inner">
     <p class="section-label reveal">08 — For Sponsors</p>
     <h2 class="reveal">A seat at the<br>Mad Hatter's table.</h2>
-    <p class="lead reveal">Our audience is technically sophisticated, highly engaged, and deeply allergic to marketing fluff. Sponsoring BSidesTLV means putting your brand in a room where it has to earn its place. The organisations that do it well become part of the community.</p>
-    <p class="reveal" style="margin-top:1.25rem; font-size:0.95rem; color:var(--muted-l); font-style:italic;">We are a non-profit. Your investment goes directly into making the event better.</p>
+    <p class="lead reveal">The people who come to BSidesTLV are technically sophisticated, relatively hard to reach through conventional marketing, and have a low tolerance for brands that don't earn their presence. Sponsoring this event means putting your organisation in a room where that's the dynamic — which is, genuinely, why the companies that do it well stop thinking of it as a sponsorship and start thinking of it as part of how they engage with the community.</p>
+    <p class="reveal" style="margin-top:1.25rem; font-size:0.95rem; color:var(--muted-l); font-style:italic;">We're a non-profit. Your investment goes directly into making the event work better.</p>
 
     <div class="sponsor-table reveal">
       <div class="sp-col yes">
-        <div class="sp-col-head">What sponsoring gets you</div>
-        <div class="sp-item"><span class="sp-mark">+</span>Logo on website, stage backdrop, lanyard, and event programme.</div>
-        <div class="sp-item"><span class="sp-mark">+</span>Complimentary participant registrations (tier dependent).</div>
-        <div class="sp-item"><span class="sp-mark">+</span>Social media mentions — pre-event and day-of.</div>
+        <div class="sp-col-head">What sponsoring includes</div>
+        <div class="sp-item"><span class="sp-mark">+</span>Logo placement on the website, stage backdrop, lanyard, and event programme.</div>
+        <div class="sp-item"><span class="sp-mark">+</span>Complimentary participant registrations, with the number depending on tier.</div>
+        <div class="sp-item"><span class="sp-mark">+</span>Social media mentions in the lead-up to the event and on the day.</div>
         <div class="sp-item"><span class="sp-mark">+</span>Village or workshop co-branding at higher tiers.</div>
-        <div class="sp-item"><span class="sp-mark">+</span>Access to a room full of people who are genuinely hard to reach any other way.</div>
+        <div class="sp-item"><span class="sp-mark">+</span>Genuine access to a technical audience that is genuinely difficult to reach through other channels.</div>
       </div>
       <div class="sp-col no">
-        <div class="sp-col-head">What it doesn't get you</div>
-        <div class="sp-item"><span class="sp-mark">×</span>Participant data. No lead lists. No contact exports. Ever.</div>
-        <div class="sp-item"><span class="sp-mark">×</span>Access to the CFP process or influence over speaker selection.</div>
-        <div class="sp-item"><span class="sp-mark">×</span>A speaking slot. An acknowledgment is not a talk.</div>
-        <div class="sp-item"><span class="sp-mark">×</span>The right to reject talks based on competitive interest.</div>
-        <div class="sp-item"><span class="sp-mark">×</span>Logo placement implying editorial endorsement.</div>
+        <div class="sp-col-head">What it doesn't include</div>
+        <div class="sp-item"><span class="sp-mark">×</span>Participant data of any kind — no contact exports, no lead lists, regardless of tier or ask.</div>
+        <div class="sp-item"><span class="sp-mark">×</span>Any access to the CFP process or influence over who gets accepted to speak.</div>
+        <div class="sp-item"><span class="sp-mark">×</span>A speaking slot — a title-sponsor acknowledgment at the opening is not a talk and doesn't get treated as one.</div>
+        <div class="sp-item"><span class="sp-mark">×</span>The ability to block or influence talks based on competitive interest.</div>
+        <div class="sp-item"><span class="sp-mark">×</span>Logo placement that implies editorial endorsement of the conference's content or speakers.</div>
       </div>
     </div>
 
-    <div class="pull-quote-section reveal" style="padding: 3rem 0 0;">
+    <div class="pull-quote-section reveal" style="padding:3rem 0 0;">
       <p class="pull-quote-text" style="font-size:clamp(1.1rem,2vw,1.6rem);">"If that's the room you want to be in — one where your brand has to earn its place — we'd love to have you at the table."</p>
     </div>
   </div>
 </div>
 
-<!-- ─── TAGLINE MARQUEE ─── -->
+<!-- ─── MARQUEE ─── -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="marquee-item">We're all mad here. Welcome.</span>
     <span class="marquee-item">Down the rabbit hole. Bring your tools.</span>
-    <span class="marquee-item">The hallucination is beautiful. Don't stop looking underneath it.</span>
+    <span class="marquee-item">There's a version of this where we say something punchy about hallucinations.</span>
     <span class="marquee-item">AI promised us Wonderland. We're here to check the code.</span>
     <span class="marquee-item">Wonder responsibly.</span>
     <span class="marquee-item">Local energy. Global credibility.</span>
     <span class="marquee-item">This is where the people who flip the record come to play.</span>
     <span class="marquee-item">We're all mad here. Welcome.</span>
     <span class="marquee-item">Down the rabbit hole. Bring your tools.</span>
-    <span class="marquee-item">The hallucination is beautiful. Don't stop looking underneath it.</span>
+    <span class="marquee-item">There's a version of this where we say something punchy about hallucinations.</span>
     <span class="marquee-item">AI promised us Wonderland. We're here to check the code.</span>
     <span class="marquee-item">Wonder responsibly.</span>
     <span class="marquee-item">Local energy. Global credibility.</span>
@@ -1653,58 +905,70 @@
 
 <!-- ─── TAGLINES ─── -->
 <div class="tagline-section">
-  <p class="section-label reveal">09 — Tagline Bank</p>
-  <h2 class="reveal">Words that work.</h2>
-  <p class="lead reveal">Approved copy for use across all BSidesTLV touchpoints. Do not invent new taglines without organizer sign-off.</p>
+  <p class="section-label reveal">09 — Approved Copy</p>
+  <h2 class="reveal">Lines that have been signed off.</h2>
+  <p class="lead reveal">These are the approved taglines for BSidesTLV 2026. They've been written to match the voice guidelines — each one has a specific context and a reason it works. Use them as-is across touchpoints. If a brief calls for something new, run it by the organizers before it goes anywhere public, because the lines below are consistent with each other in ways that aren't obvious until you break one of them.</p>
 
   <div class="tagline-grid reveal">
     <div class="tagline-item">
       <span class="tagline-context">General / Theme</span>
       <div class="tagline-text">"We're all mad here. Welcome."</div>
+      <div class="tagline-note">The Alice reference earns its place because the audience will clock it immediately. Warm without being performatively welcoming. Works anywhere the conference needs a human opening line.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">General / Theme</span>
       <div class="tagline-text">"Down the rabbit hole. Bring your tools."</div>
+      <div class="tagline-note">Bridges the Alice theme and the technical register without being clever about it. Good for promotional copy where you need to do both at once.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">AI / Theme</span>
-      <div class="tagline-text">"The hallucination is beautiful. Don't stop looking underneath it."</div>
+      <div class="tagline-text">"There's a version of this where we say something punchy about hallucinations."</div>
+      <div class="tagline-note">Works because the audience has read a dozen AI event taglines and this one names the pattern instead of repeating it. Use it when the context can hold a longer line — not for a banner, but for copy that gets read.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">AI / Theme</span>
       <div class="tagline-text">"AI promised us Wonderland. We're here to check the code."</div>
+      <div class="tagline-note">Specific to the conference's role — skeptical examination rather than hype. The two-sentence structure is intentional; it earns the second line by setting it up with the first.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">AI / Theme</span>
       <div class="tagline-text">"Wonder responsibly."</div>
+      <div class="tagline-note">The shortest line in the bank and probably the hardest to replace. Works by inverting the usual register — "wonder" sounds like a tech-company word, "responsibly" makes it self-aware. Don't elaborate on it.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">Speakers / CFP</span>
-      <div class="tagline-text">"You have something to say. Every voice belongs at this table."</div>
+      <div class="tagline-text">"If you have something real to say, the table is set."</div>
+      <div class="tagline-note">Leads with the condition rather than the affirmation. More honest than "every voice belongs" because it implies the CFP actually has standards — which it does, and that's a feature.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">Speakers / CFP</span>
       <div class="tagline-text">"You've always been a little mad. You're in the right place."</div>
+      <div class="tagline-note">Warm and specific to the audience — people who chose security as a field will understand the joke. Good for CFP outreach to people who haven't submitted before.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">Speakers / CFP</span>
       <div class="tagline-text">"First-time speaker? The Queen won't have your head."</div>
+      <div class="tagline-note">Addresses the specific anxiety of first-time submitters directly, with the Alice reference doing the work of making it lighter. Use in CFP communications targeting new voices.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">Sponsors</span>
       <div class="tagline-text">"This is where the people who flip the record come to play."</div>
+      <div class="tagline-note">Speaks to the quality of the audience without claiming it directly. Better for sponsor-facing copy than a straightforward "highly engaged technical audience" because it's more interesting to read.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">Sponsors</span>
       <div class="tagline-text">"A seat at the Mad Hatter's table."</div>
+      <div class="tagline-note">Short enough for a header. The Mad Hatter reference works because the sponsorship section leans into it — it's not a random Alice drop, it's been established by the section it lives in.</div>
     </div>
     <div class="tagline-item">
       <span class="tagline-context">Footer / Closing</span>
       <div class="tagline-text">"We're all mad here. Let's see what we can build."</div>
+      <div class="tagline-note">The "let's see what we can build" ending gives it a forward-looking register that works for closings — it's an opening thought, not a conclusion. Use for footers, email sign-offs, closing statements.</div>
     </div>
     <div class="tagline-item">
-      <span class="tagline-context">Identity</span>
+      <span class="tagline-context">Identity / Evergreen</span>
       <div class="tagline-text">"Local energy. Global credibility."</div>
+      <div class="tagline-note">The identity line — not themed to 2026, works across years. Use when the context is about the conference's standing rather than this year's edition specifically.</div>
     </div>
   </div>
 </div>
@@ -1724,7 +988,6 @@
 </footer>
 
 <script>
-  // ─── PROGRESS BAR
   const bar = document.getElementById('progress');
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
@@ -1732,34 +995,22 @@
     bar.style.width = (scrolled / total * 100) + '%';
   });
 
-  // ─── SCROLL REVEAL
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ─── ACTIVE NAV SECTION
   const sections = document.querySelectorAll('[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
-
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        navLinks.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
-        });
+        navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id); });
       }
     });
   }, { threshold: 0.3 });
-
   sections.forEach(s => sectionObserver.observe(s));
 
-  // ─── LIGHT / DARK TOGGLE
   const toggleBtn = document.getElementById('themeToggle');
   const savedTheme = localStorage.getItem('bsides-theme');
   if (savedTheme === 'light') { document.documentElement.classList.add('light'); toggleBtn.textContent = 'Dark'; }
