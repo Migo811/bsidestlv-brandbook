@@ -110,6 +110,56 @@
 
     @media (max-width: 900px) { .nav-links { display: none; } }
 
+    /* ─── THEME TOGGLE ─── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted-l);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--purple-xl); border-color: var(--purple-l); }
+
+    /* ─── LIGHT MODE ─── */
+    html.light {
+      --bg:       #f6f6fc;
+      --bg2:      #ededf8;
+      --bg3:      #e4e4f2;
+      --card:     #ffffff;
+      --purple:   #6d28d9;
+      --purple-l: #7c3aed;
+      --purple-xl:#8b5cf6;
+      --green:    #4d7c0f;
+      --green-d:  #365314;
+      --pink:     #c026d3;
+      --text:     #0d0d1e;
+      --text-2:   #1e1e3f;
+      --muted:    #52525b;
+      --muted-l:  #3f3f5a;
+      --border:   rgba(109,40,217,0.18);
+      --border-l: rgba(109,40,217,0.1);
+    }
+    html.light nav { background: rgba(246,246,252,0.92); }
+    html.light .hero-bg::before { background: radial-gradient(circle, rgba(109,40,217,0.12) 0%, transparent 65%); }
+    html.light .hero-bg::after  { background: radial-gradient(circle, rgba(163,230,53,0.08) 0%, transparent 65%); }
+    html.light .hero-title { color: var(--text); }
+    html.light .hero-sub   { color: var(--muted-l); }
+    html.light .rules-section { background: var(--bg2); }
+    html.light .theme-section { background: var(--bg3); }
+    html.light .pull-quote { background: var(--bg2); border-color: var(--border); }
+    html.light .example-col.wrong { background: rgba(239,68,68,0.06); }
+    html.light .example-col.right { background: rgba(109,40,217,0.06); }
+    html.light .speaker-card, html.light .sponsor-card { background: var(--card); border-color: var(--border); }
+    html.light .tagline-item { border-color: var(--border-l); }
+    html.light .tagline-item:hover { background: var(--bg3); }
+
     /* ─── HERO ─── */
     .hero {
       position: relative;
@@ -1107,6 +1157,7 @@
     <li><a href="#speakers">Speakers</a></li>
     <li><a href="#sponsors">Sponsors</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle">Light</button>
 </nav>
 
 <!-- ─── HERO ─── -->
@@ -1183,21 +1234,22 @@
     </div>
     <div class="stat">
       <span class="stat-num">1,200+</span>
-      <div class="stat-label">Participants</div>
-    </div>
-    <div class="stat">
-      <span class="stat-num">3</span>
-      <div class="stat-label">Villages</div>
+      <div class="stat-label">Participants (2025)</div>
     </div>
     <div class="stat">
       <span class="stat-num">54h</span>
-      <div class="stat-label">CTF Non-Stop</div>
+      <div class="stat-label">CTF (2025)</div>
     </div>
     <div class="stat">
       <span class="stat-num">100%</span>
       <div class="stat-label">Volunteer-Run</div>
     </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <div class="stat-label">Non-Profit</div>
+    </div>
   </div>
+  <p class="reveal" style="font-size:0.8rem; color:var(--muted); margin-top:1rem;">* Village count and format varies by year. Verify 2026 lineup with organizers before publishing.</p>
 </div>
 
 <!-- ─── NON-NEGOTIABLES ─── -->
@@ -1233,7 +1285,7 @@
         <div class="rule-num">04</div>
         <div class="rule-body">
           <div class="rule-title">Research first. Always.</div>
-          <div class="rule-desc">BSidesTLV exists for the talks that don't get accepted at polished commercial conferences. Too raw. Too niche. Too honest. That's exactly who we're here for.</div>
+          <div class="rule-desc">BSidesTLV is for research that is independent, deep, and honest. Talks that challenge assumptions, expose real problems, and don't have a product to sell. That's exactly who we're here for.</div>
         </div>
       </div>
       <div class="rule-item reveal">
@@ -1335,11 +1387,11 @@
     </div>
     <div class="voice-col dont">
       <div class="voice-col-head">We don't sound like this</div>
-      <div class="voice-item"><span class="marker">—</span> Corporate enthusiasm. "We're thrilled to announce…"</div>
+      <div class="voice-item"><span class="marker">—</span> Hype without substance. Enthusiasm needs to be earned.</div>
       <div class="voice-item"><span class="marker">—</span> AI-optimised buzzwords. "Unlock your potential."</div>
       <div class="voice-item"><span class="marker">—</span> Generic event copy. "Network with industry leaders."</div>
-      <div class="voice-item"><span class="marker">—</span> Over-produced warmth. "Join our amazing community!"</div>
-      <div class="voice-item"><span class="marker">—</span> Hype without substance. Claims we can't stand behind.</div>
+      <div class="voice-item"><span class="marker">—</span> Gatekeeping. The community is broad — don't perform exclusivity.</div>
+      <div class="voice-item"><span class="marker">—</span> Claims we can't stand behind.</div>
       <div class="voice-item"><span class="marker">—</span> Manufactured urgency for its own sake.</div>
     </div>
   </div>
@@ -1351,7 +1403,7 @@
     </div>
     <div class="example-col right">
       <div class="example-label">Right</div>
-      <p class="example-text">"BSidesTLV is built on the talks that don't get accepted anywhere else — the research that's too raw, too niche, or too honest for a polished conference slot. If you have something real to say, this is your table."</p>
+      <p class="example-text">"BSidesTLV is for research that is independent, deep, and honest. The CFP is blind. We don't sell slots. If you have something real to say, this is your table."</p>
     </div>
   </div>
 </div>
@@ -1491,7 +1543,7 @@
 <div class="section" id="speakers">
   <p class="section-label reveal">07 — For Speakers</p>
   <h2 class="reveal">You have something to say.</h2>
-  <p class="lead reveal">BSidesTLV is built on the talks that don't get accepted anywhere else. The CFP is fair, blind, and community-reviewed. Every voice belongs at this table — including yours.</p>
+  <p class="lead reveal">The BSidesTLV CFP is fair, blind, and community-reviewed. We don't sell slots. We don't care about your job title. Every voice belongs at this table — including yours.</p>
 
   <div class="speaker-grid">
     <div class="speaker-card reveal">
@@ -1691,6 +1743,16 @@
   }, { threshold: 0.3 });
 
   sections.forEach(s => sectionObserver.observe(s));
+
+  // ─── LIGHT / DARK TOGGLE
+  const toggleBtn = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('bsides-theme');
+  if (savedTheme === 'light') { document.documentElement.classList.add('light'); toggleBtn.textContent = 'Dark'; }
+  toggleBtn.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light');
+    toggleBtn.textContent = isLight ? 'Dark' : 'Light';
+    localStorage.setItem('bsides-theme', isLight ? 'light' : 'dark');
+  });
 </script>
 </body>
 </html>
